@@ -8,27 +8,8 @@ app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({extended: true}))
 
 // set routes
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + "/index.html");
-});
-
-app.get('/about', function(req, res) {
-  res.json({message: "About page"});
-});
-
-app.get('/contact', function(req, res) {
-  res.sendFile(__dirname + "/contact.html");
-});
-
-app.post('/contact', function(req, res) {
-  console.log(req.body);
-  res.send("Hello " + req.body.name);
-});
-
-app.get('/@:username/:post_slug', function(req, res) {
-  console.log(req.params);
-  res.send("You are the best " + req.params.username);
-});
+var router = require('./app/routes');
+app.use(router);
 
 // start the server
 app.listen(port, function() {
