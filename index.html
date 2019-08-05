@@ -1,10 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <title>Document</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>test</title>
+<script type='text/javascript'>
+  var uploadQuestions = [
+    {name: "Gender", type: "select", label: "性別",
+    options: { male: "男性", female: "女性", other: "その他"}},
+    {name: "Age", type: "text", label: "年齢"},
+  ];
+</script>
+<style>
+  #btn_uploader{
+    background-color: #212121;
+    border-radius: 6px;
+    border-style: none;
+    color: #fff;
+    display: block;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    padding: 0;
+    width: 100px;
+  }
+</style>
 </head>
 <body>
-    I am an HTML Page
+    <div hub-root
+      data-sh-customer='hikarimiso'
+      data-sh-board-info='false'
+      data-sh-board='harusame'
+      data-sh-enable-upload='true'
+      data-sh-dialog-enabled='false'
+      data-sh-enable-hover='false'
+      data-sh-hover-text='false'
+      data-sh-locale='ja'
+      data-sh-first-page='10'
+      data-sh-upload-questions="window.uploadQuestions"
+    ></div>
+    <button id="btn_uploader" onclick="window.showEntryForm('harusame')">投稿する</button>
+<script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="https://bolt.shuttlerock-cdn.com/production/bundle-simple-latest.js" async></script>
 </body>
 </html>
